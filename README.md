@@ -4,10 +4,10 @@ readelf- displays information about one or more ELF format object files.</br>
 The options control what particular information to display.</br>
 ---------------------------------------------------------------
 #task0 </br>
-0a</br>
-- changed the for stop con i<=arr.len -> i<arr.length.<br>
-- added a FREE(X) func as shown in line_parser code.</br>
-0b</br>
+#0a</br>
+* changed the for stop con i<=arr.len -> i<arr.length.<br>
+* added a FREE(X) func as shown in line_parser code.</br>
+#0b</br>
 1-Where is the entry point specified, and what is its value? </br>
     Entry point address:               0x400110</br>
 2-  How many sections are there in a.out? </br>
@@ -27,5 +27,15 @@ The options control what particular information to display.</br>
        to calculate the entry of the _start needed :</br>
        entry_point+section_file_offset + function_virtual_address= 0x400110+4640+0000000000000018. </br>
 -------------------------------------------------------------------------------------
+#2</br>
+2a</br>
+my conclution: main() call via _start ->not the same adress (by hint: The assembly code in Lab 4). </br>
+* What is the virtual address to which this function is loaded</br>
+Entry point address:               0x4000b5 </br>
+* Which function precedes main in execution ? </br>
+    _start address:           00000000004000b0 </br>
+    </br></br>
+2b</br>
+
 
        
