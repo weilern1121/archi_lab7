@@ -1,0 +1,86 @@
+step 0:
+weilern@weilern-VirtualBox:~/CLionProjects/archi-lab7/3/b$ ./ntsc 0123456789
+The number of digits in the string is: 8
+weilern@weilern-VirtualBox:~/CLionProjects/archi-lab7/3/b$ ./my_digit_cnt 0123456789
+The number of digits in the string is: 10 
+
+--------------------------------------------------------------------------------
+
+step 1: fint the digit_cnt func in the readELF of ntsc
+
+    68: 0000000000000707  1132 FUNC    GLOBAL DEFAULT   14 digit_cnt
+
+	=> 	digit_cnt entry_point:	0x707
+		digit_cnt size:		1132
+
+--------------------------------------------------------------------------------
+step 2: find the dig_counter (my fun) in the readELF of my_digit_cnt
+
+    70: 00000000004005b6    46 FUNC    GLOBAL DEFAULT   14 dig_counter
+
+	=>	main entry_point:	0x4005b6
+		main size:		46
+
+--------------------------------------------------------------------------------
+step 3: copy dig_counter into ntsc while using the hexeditplus copy func.
+	using option 5 in hexeditplus to fix the bug into the ntsc (as described in the lab session)
+
+weilern@weilern-VirtualBox:~/CLionProjects/archi-lab7/3/b$ ./hexeditplus
+-----------------
+Choose action:
+1-Set File Name
+2-Set Unit Size
+3-File Display
+4-File Modify
+5-Copy From File
+6-Quit
+-----------------
+1
+enter file name
+ntsc
+-----------------
+Choose action:
+1-Set File Name
+2-Set Unit Size
+3-File Display
+4-File Modify
+5-Copy From File
+6-Quit
+-----------------
+2
+enter unit size
+1
+-----------------
+Choose action:
+1-Set File Name
+2-Set Unit Size
+3-File Display
+4-File Modify
+5-Copy From File
+6-Quit
+-----------------
+5
+Please enter <src_file> <src_offset> <dst_offset> <length>
+my_digit_cnt 0x4005b6 0x707 1132
+Copied 1132 bytes FROM my_digit_cnt at 4005B6 TO ntsc at 707
+-----------------
+Choose action:
+1-Set File Name
+2-Set Unit Size
+3-File Display
+4-File Modify
+5-Copy From File
+6-Quit
+-----------------
+6
+
+
+--------------------------------------------------------------------------------
+step 4: check the result
+
+
+weilern@weilern-VirtualBox:~/CLionProjects/archi-lab7/3/b$ ./ntsc 0123456789
+The number of digits in the string is: 10
+weilern@weilern-VirtualBox:~/CLionProjects/archi-lab7/3/b$ 
+
+

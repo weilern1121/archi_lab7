@@ -1,0 +1,21 @@
+1a:
+
+1) find the offset (file location) of the function main. 
+	68: 00000000004005e0    42 FUNC    GLOBAL DEFAULT   14 _start
+	as shown in task 2 (hint for lab4's assembly code) the main func has deriven from the _strart func.
+
+2) In that reference you will find both the size of the function and the function's virtual address and section number.
+	71: 00000000004006d6  1695 FUNC    GLOBAL DEFAULT   14 main
+	=> 	main location: 0x4006d6
+		main size: 1695
+
+3) In the section table of the executable, find the entry for the function's section (readelf -S). 
+	There are 36 section headers, starting at offset 0x38f8:
+	...
+	  [14] .text             PROGBITS         00000000004005e0  000005e0
+       000000000000082f  0000000000000000  AX       0     0     16
+	=>	.text adder: 	0x4005e0
+		.text align:	0x5e0
+
+
+my conclution:	 To print the main func we'll use the file display of the hexediplus from X4006d6 1695
