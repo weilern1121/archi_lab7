@@ -145,9 +145,9 @@ void file_modify(){
     //move location to offset of write-point
     lseek(fd,0,SEEK_SET);
     lseek(fd,location,SEEK_SET);
-
-    ssize_t write_num=write(fd, &unsigned_vals, (size_t) size);
-    if(write_num!=size)
+    //ssize_t write_num=write(fd, &unsigned_vals, (size_t) size);
+    //if(write_num!=size)
+    if((write(fd, &unsigned_vals, (size_t) size*2))<0)
         perror("write went wrong!");
     close(fd);
 //    printf("@#$@#$");
@@ -263,6 +263,3 @@ int main(int argc, char **argv) {
 
     return 1;
     }
-
-
-
